@@ -1,9 +1,13 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-
-import { HelloWorld } from '../app/components/HelloWorld';
+import { ThemeContextProvider } from './context/themeContext';
+import App from './App';
 
 ReactDOM.render(
-    <HelloWorld firstName="Alina" lastName="Renan" />,
-    document.getElementById('root')
+  <React.StrictMode>
+    <ThemeContextProvider>
+      <App />
+  	</ThemeContextProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );

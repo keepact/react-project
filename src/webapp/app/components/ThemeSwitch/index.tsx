@@ -9,12 +9,11 @@ import { ThemeContext as Context } from '../../shared/context/themeContext';
 
 const ThemeSwitcher: React.FC = () => {
   const { colors, title } = useContext(ThemeContext);
-  const { setTheme: setThemeConfig } = useContext(Context); 
+  const { setTheme: setThemeConfig, colorTheme } = useContext(Context); 
 
   const handleChangeTheme = (): void => {
-    setThemeConfig({
-      setTheme: () => title === 'light' ? light : dark
-    });
+    const theme = { colorTheme: colorTheme.title === 'light' ? dark : light };
+    setThemeConfig({ colorTheme: theme.colorTheme, setTheme: () => theme });
   }
   
   return (

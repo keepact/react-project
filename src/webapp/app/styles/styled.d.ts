@@ -7,7 +7,11 @@ declare module 'styled-components' {
       primary: string;
       secundary: string;
       background: string;
-      text: string;
+      text: {
+        primary: string;
+        secundary: string;
+        tertiary: string;
+      };
     };
   }
 }

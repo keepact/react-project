@@ -1,5 +1,5 @@
 import React from 'react';
-import ThemeSwitcher from '../ThemeSwitch/index';
+import ThemeSwitcher from '../../../components/ThemeSwitch';
 import { Container, Content } from './styles';
 
 const Header: React.FC = () => {

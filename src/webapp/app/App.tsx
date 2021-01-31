@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { ThemeContext } from './shared/context/themeContext';
 import { Provider } from 'react-redux';
@@ -15,9 +14,7 @@ const App: React.FC = () => {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <ThemeProvider theme={colorTheme}>
-          <BrowserRouter>
-            <Routes />
-          </BrowserRouter>
+          <Routes />
         </ThemeProvider>
       </PersistGate>
       <GlobalStyle />

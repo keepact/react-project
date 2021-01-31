@@ -1,17 +1,24 @@
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
-import HelloWorld from './components/HelloWorld';
-import GlobalStyle from './styles/global';
 import { ThemeContext } from './shared/context/themeContext';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './shared/store';
+import GlobalStyle from './styles/global';
+import HelloWorld from './components/HelloWorld';
 
 const App: React.FC = () => {
   const { colorTheme } = React.useContext(ThemeContext);
 
   return (
-    <ThemeProvider theme={colorTheme}>
-      <HelloWorld firstName="Alina" lastName="Renan" />
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <ThemeProvider theme={colorTheme}>
+          <HelloWorld firstName="Alina" lastName="Renan" />
+        </ThemeProvider>
+      </PersistGate>
       <GlobalStyle />
-    </ThemeProvider>
+    </Provider>
   );
 };
 export default App;

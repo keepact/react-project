@@ -8,7 +8,7 @@ type Props = {
 };
 
 export type Theme = {
-  colorTheme: DefaultTheme;
+  colorTheme?: DefaultTheme;
   setTheme: React.Dispatch<React.SetStateAction<Theme>>;
 };
 

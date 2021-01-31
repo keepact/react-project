@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { ThemeContextProvider } from './context/themeContext';
+import { ThemeContextProvider } from './shared/context/themeContext';
 import App from './App';
 
 ReactDOM.render(

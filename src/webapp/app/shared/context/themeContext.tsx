@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { DefaultTheme } from 'styled-components';
-import light from '../styles/themes/light';
-import { usePersistedState } from '../shared/hooks/usePersistedState';
+import light from '../../styles/themes/light';
+import { usePersistedState } from '../hooks/usePersistedState';
 
 type Props = {
   children: React.ReactNode;

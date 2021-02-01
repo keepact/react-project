@@ -29,6 +29,8 @@ export const Separator = styled.div`
 `;
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   border-radius: 5px;
   width: 100%;
   height: 35px;

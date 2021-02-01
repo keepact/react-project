@@ -1,21 +1,41 @@
 import React from 'react';
-import image from '../../../images/teaser-image2.png';
-import { Container, Date, Wrapper, Data, Title, SubTitle } from './styles';
+import { useSelector } from 'react-redux';
+import { Container, Date as DateComponent, Wrapper, Data, Title, SubTitle } from './styles';
+import { ApplicationState } from '../../../shared/store';
 
 const Card: React.FC = () => {
+  const { data: insights, error, loading } = useSelector(
+    (state: ApplicationState) => state.insight,
+  );
+
+  const convertDate = (date: number) => {
+    const dateWithMilliseconds = date * 1000;
+    const dateObject: Date = new Date(dateWithMilliseconds);
+    const dateString = dateObject.toLocaleDateString("en-US", {
+      month: "long", 
+      day: "numeric"
+    }).toUpperCase();
+
+    return dateString;
+  }
+
   return (
-    <Container>
-      <Wrapper>
-        <Data>
-          <Date>
-            <p>JAN 03</p>
-          </Date>
-          <Title>New Service</Title>
-          <SubTitle>What is the new service?</SubTitle>
-          <img src={image} />
-        </Data>
-      </Wrapper>
-    </Container>
+    <>
+    {insights.map(insight => (
+          <Container key={insight.insightId}>
+          <Wrapper>
+            <Data>
+              <DateComponent>
+                <p>{convertDate(insight.date)}</p>
+              </DateComponent>
+              <Title>{insight.title}</Title>
+              <SubTitle>{insight.text}</SubTitle>
+              <img src={require(`../../../images/${insight.image}.png`).default} />
+            </Data>
+          </Wrapper>
+        </Container>    
+    ))}
+    </>
   );
 }
 

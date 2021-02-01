@@ -3,6 +3,8 @@ export enum InsightTypes {
   GET_INSIGHT = '@insight/GET_INSIGHT',
   GET_INSIGHT_SUCCESS = '@insight/GET_INSIGHT_SUCCESS',
   GET_INSIGHT_ERROR = '@insight/GET_INSIGHT_ERROR',
+  FILTER_UNREAD = '@insight/FILTER_UNREAD',
+  FILTER_ALL = '@insight/FILTER_ALL'
 }
 
 // Data Types
@@ -20,4 +22,6 @@ export interface InsightState {
   readonly data: Insight[];
   readonly loading: boolean;
   readonly error: boolean;
+  readonly insights: Insight[];
+  readonly unread: number;
 }

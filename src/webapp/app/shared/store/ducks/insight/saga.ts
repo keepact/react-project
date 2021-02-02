@@ -1,6 +1,7 @@
 import { all, put, call, takeLatest } from 'redux-saga/effects';
 import { getInsights } from '../../../services/getInsights.service';
 import { InsightTypes, Insight } from './types';
+import { convertDate } from '../../../helpers';
 
 interface InsightType {
   data: Insight[];
@@ -9,21 +10,10 @@ interface InsightType {
 function* getInsight() {
   try {
     const { data }: InsightType = yield call(getInsights);
-    const convertDate = (date: number) => {
-      const dateWithMilliseconds = date * 1000;
-      const dateObject: Date = new Date(dateWithMilliseconds);
-      const dateString = dateObject.toLocaleDateString("en-US", 
-      {
-        month: "long", 
-        day: "numeric"
-      }).toUpperCase();
-  
-      return dateString;
-    }
-
+    const config = { month: 'long', day: 'numeric'};
     const dataFormated = data.map(item => ({
       ...item,
-      date: convertDate(item.date)
+      date: convertDate(item.date, config).toUpperCase()
     }))
     yield put({ type: InsightTypes.GET_INSIGHT_SUCCESS, payload: dataFormated });
   } catch (err) {

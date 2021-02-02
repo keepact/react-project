@@ -17,7 +17,7 @@ const TransactionList: React.FC<Props> = ({ transactions }) => {
               <span>{transaction.date}</span>
             </Left>
             <Right>
-              <p>-${transaction.amount}</p>
+              <p>-{transaction.amount}</p>
             </Right>
           </Wrapper>
         </Container>      

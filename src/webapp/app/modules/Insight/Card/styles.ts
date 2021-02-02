@@ -13,6 +13,10 @@ export const Wrapper = styled.div`
   height: 200px;
   padding: 15px;
   box-shadow: 10px 10px 50px 1px rgba(0,0,0,.2);
+
+  button {
+    width: 100%;
+  }
 `;
 
 export const Data = styled.div`
@@ -26,11 +30,13 @@ export const Data = styled.div`
 export const Title = styled.h4`
   font-size: 20px;
   font-weight: bold;
+  text-align: left;
 `;
 
 export const SubTitle = styled.p`
   font-size: 16px;
   color: ${(props) => props.theme.colors.text.primary};
+  text-align: left;
 `;
 
 export const Date = styled.div`

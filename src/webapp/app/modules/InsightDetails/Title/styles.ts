@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h2`
+  color: ${(props) => props.theme.colors.text.primary};
   font-size: 34px;
   font-weight: bold;
   text-align: left;

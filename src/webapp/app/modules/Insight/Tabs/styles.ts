@@ -40,7 +40,7 @@ export const Text = styled.h3`
   font-weight: bold;
   font-size: 16px;
   text-transform: capitalize;
-  color: ${(props) => props.theme.colors.text.primary};
+  color: ${(props) => props.theme.colors.text.secundary};
   opacity: ${(props: Props) => props.checked ? 0.3 : 1 };
   margin-bottom: 3px;
 `;

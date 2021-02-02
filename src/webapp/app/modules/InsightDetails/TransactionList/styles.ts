@@ -27,6 +27,7 @@ export const Right = styled.div`
   p {
     font-size: 16px;
     font-weight: bold;
+    color: ${(props) => props.theme.colors.text.secundary};
   }
 
   span {
@@ -37,6 +38,7 @@ export const Right = styled.div`
 `;
 
 export const Left = styled.div`
+  color: ${(props) => props.theme.colors.text.primary};
   display: flex;
   align-items: flex-start;
   flex-direction: column;

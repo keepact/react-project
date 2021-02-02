@@ -42,7 +42,6 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 200px;
   padding: 15px;
-  /* box-shadow: 10px 10px 50px 1px rgba(0,0,0,.2); */
 `;
 
 export const CarouselItem = styled.div`
@@ -68,6 +67,7 @@ export const Column = styled.div`
 
   span {
     padding: 5px 0;
+    color: ${(props) => props.theme.colors.text.primary};
   }
 
   img {
@@ -93,6 +93,7 @@ export const Total = styled.div`
     font-weight: bold;
     font-size: 18px;
     text-align: left;
+    color: ${(props) => props.theme.colors.text.primary};
   }
   span {
     font-weight: bold;

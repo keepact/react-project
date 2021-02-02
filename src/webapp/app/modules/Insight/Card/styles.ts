@@ -28,15 +28,18 @@ export const Data = styled.div`
 `;
 
 export const Title = styled.h4`
+  color: ${(props) => props.theme.colors.text.primary};
   font-size: 20px;
   font-weight: bold;
   text-align: left;
+  text-transform: capitalize;
 `;
 
 export const SubTitle = styled.p`
   font-size: 16px;
   color: ${(props) => props.theme.colors.text.primary};
   text-align: left;
+  text-transform: capitalize;
 `;
 
 export const Date = styled.div`

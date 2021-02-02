@@ -5,6 +5,7 @@ import { Container, Date as DateComponent, Wrapper, Data, Title, SubTitle } from
 import { ApplicationState } from '../../../shared/store';
 import { InsightDetailsTypes } from '../../../shared/store/ducks/insight-details/types';
 import RouteNames from '../../../shared/enums/routeNames.enum';
+import Loading from '../../../components/Loading';
 
 const Card: React.FC = () => {
   const { data: insights, error, loading } = useSelector(
@@ -23,22 +24,28 @@ const Card: React.FC = () => {
 
   return (
     <>
-    {insights.map(insight => (
-      <Container key={insight.insightId}>
-        <Wrapper>
-        <button type="button" onClick={() => handleChangePage(insight.insightId)}>
-          <Data>
-            <DateComponent>
-              <p>{insight.date}</p>
-            </DateComponent>
-            <Title>{insight.title}</Title>
-            <SubTitle>{insight.text}</SubTitle>
-            <img src={require(`../../../images/${insight.image}.png`).default} />
-          </Data>
-        </button>
-        </Wrapper>
-      </Container>    
-    ))}
+    {loading ? (
+      <Loading />
+    ) : (
+      <>
+        {insights.map(insight => (
+          <Container key={insight.insightId}>
+            <Wrapper>
+            <button type="button" onClick={() => handleChangePage(insight.insightId)}>
+              <Data>
+                <DateComponent>
+                  <p>{insight.date}</p>
+                </DateComponent>
+                <Title>{insight.title}</Title>
+                <SubTitle>{insight.text}</SubTitle>
+                <img src={require(`../../../images/${insight.image}.png`).default} />
+              </Data>
+            </button>
+            </Wrapper>
+          </Container>    
+        ))}
+      </>
+      )}
     </>
   );
 }

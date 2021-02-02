@@ -41,6 +41,22 @@ module.exports = {
                 hash: 'sha512',
                 name: 'content/[hash].[ext]'
               }
+            },
+            {
+              test: /\.(sa|sc|c)ss$/,
+              use: [
+                { loader: 'style-loader' },
+                {
+                  loader: 'dts-css-modules-loader',
+                  options: {
+                    namedExport: false,
+                    banner: "// This file is generated automatically"
+                  }
+                },
+                {
+                  loader: 'css-loader'
+                },
+              ]
             }      
         ]
     },

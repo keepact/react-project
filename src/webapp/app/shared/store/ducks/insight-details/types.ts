@@ -25,7 +25,7 @@ export interface Account {
   type: string;
 }
 // Data Types
-interface Transaction {
+export interface Transaction {
   accountId: string;
   category: string;
   merchantName: string;

@@ -1,7 +1,7 @@
 import api from './api';
 
-export const getInsightsDetails = () =>
+export const getInsightsDetails = (id: string) =>
   api().request({
-    url: 'getinsightdetails',
-    method: 'GET',
+    url: `getinsightdetails/${id}`,
+    method: 'GET'
   });

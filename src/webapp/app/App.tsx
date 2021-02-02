@@ -15,9 +15,9 @@ const App: React.FC = () => {
       <PersistGate persistor={persistor}>
         <ThemeProvider theme={colorTheme}>
           <Routes />
+          <GlobalStyle />
         </ThemeProvider>
       </PersistGate>
-      <GlobalStyle />
     </Provider>
   );
 };

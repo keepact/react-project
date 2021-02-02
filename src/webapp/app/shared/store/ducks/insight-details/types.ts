@@ -18,7 +18,7 @@ interface Block {
   accounts?: Account[]
 }
 
-interface Account {
+export interface Account {
   id: string;
   totalPurchases: number;
   image: string;

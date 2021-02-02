@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 220px;
-  padding: 5px 20px;
+  padding: 10px 20px;
 
   .carousel-root {
     max-width: 350px;

@@ -24,28 +24,22 @@ const Card: React.FC = () => {
 
   return (
     <>
-    {loading ? (
-      <Loading />
-    ) : (
-      <>
-        {insights.map(insight => (
-          <Container key={insight.insightId}>
-            <Wrapper>
-            <button type="button" onClick={() => handleChangePage(insight.insightId)}>
-              <Data>
-                <DateComponent>
-                  <p>{insight.date}</p>
-                </DateComponent>
-                <Title>{insight.title}</Title>
-                <SubTitle>{insight.text}</SubTitle>
-                <img src={require(`../../../images/${insight.image}.png`).default} />
-              </Data>
-            </button>
-            </Wrapper>
-          </Container>    
-        ))}
-      </>
-      )}
+      {insights.map(insight => (
+        <Container key={insight.insightId}>
+          <Wrapper>
+          <button type="button" onClick={() => handleChangePage(insight.insightId)}>
+            <Data>
+              <DateComponent>
+                <p>{insight.date}</p>
+              </DateComponent>
+              <Title>{insight.title}</Title>
+              <SubTitle>{insight.text}</SubTitle>
+              <img src={require(`../../../images/${insight.image}.png`).default} />
+            </Data>
+          </button>
+          </Wrapper>
+        </Container>    
+      ))}
     </>
   );
 }

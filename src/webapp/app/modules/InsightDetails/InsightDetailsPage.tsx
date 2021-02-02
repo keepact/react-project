@@ -16,11 +16,11 @@ const InsightDetails: React.FC = () => {
   const transactions = data.blocks[accounts?.length ? 1 : 0]?.transactions;
   return (
     <>
-      <Header />
       {loading ? (
         <Loading />
       ) : (
         <>
+          <Header />
           <Title text="Purchases on your cards in December added up to $19,184"/>
           <Carousel accounts={accounts}/>
           <TransactionList transactions={transactions}/>

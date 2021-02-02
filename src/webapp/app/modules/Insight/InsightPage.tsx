@@ -5,11 +5,12 @@ import { ApplicationState } from '../../shared/store';
 import Header from './Header';
 import Tabs from './Tabs';
 import Card from './Card';
+import Loading from '../../components/Loading';
 
 const Insight: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { insights } = useSelector(
+  const { insights, loading } = useSelector(
     (state: ApplicationState) => state.insight,
   );
   
@@ -21,11 +22,18 @@ const Insight: React.FC = () => {
 
   return (
     <>
+    {loading ? (
+      <Loading />
+    ) : (
+    <>
       <Header />
       <Tabs />
       <Card />
     </>
-  );
-}
+    )
+  }
+  </>
+  )};
+
 
 export default Insight;

@@ -23,17 +23,17 @@ const Insight: React.FC = () => {
 
   return (
     <>
-    {loading ? (
-      <Loading />
-    ) : (
-    <>
-      <Header />
-      <Tabs />
-      <Card />
+      {loading ? (
+        <Loading />
+        ) : (
+          <>
+            <Header />
+            <Tabs />
+            <Card />
+          </>
+        )
+      }
     </>
-    )
-  }
-  </>
   )};
 
 

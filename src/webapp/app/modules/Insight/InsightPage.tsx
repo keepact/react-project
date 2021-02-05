@@ -15,7 +15,8 @@ const Insight: React.FC = () => {
   );
   
   useEffect(() => {
-    if (!insights.length) {
+    const insightsPrestine = insights.length;
+    if (!insightsPrestine) {
       dispatch({ type: InsightTypes.GET_INSIGHT });
     }
   }, [dispatch]);

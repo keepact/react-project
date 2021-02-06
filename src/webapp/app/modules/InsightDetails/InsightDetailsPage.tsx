@@ -8,12 +8,10 @@ import { ApplicationState } from '../../shared/store';
 import Loading from '../../components/Loading';
 
 const InsightDetails: React.FC = () => {
-  const { data, error, loading } = useSelector(
+  const { accounts, transactions, loading } = useSelector(
     (state: ApplicationState) => state.insightDetails,
   );
 
-  const accounts = data.blocks[0]?.accounts;
-  const transactions = data.blocks[accounts?.length ? 1 : 0]?.transactions;
   return (
     <>
       {loading ? (

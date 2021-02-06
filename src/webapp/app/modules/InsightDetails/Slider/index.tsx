@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Carousel as Slider } from 'react-responsive-carousel';
-import { InsightDetailsTypes } from '../../../shared/store/ducks/insight-details/types';
+import { Account, InsightDetailsTypes } from '../../../shared/store/ducks/insight-details/types';
 import { Container, Wrapper, SliderItem, Column, Column2, Total, Type } from './styles';
 
 interface Props {
-  accounts: any[];
+  accounts: Account[];
 }
 
 const Carousel: React.FC<Props> = ({ accounts }) => {

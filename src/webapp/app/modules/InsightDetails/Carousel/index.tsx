@@ -1,5 +1,8 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Carousel as Slider } from 'react-responsive-carousel';
+import { InsightDetailsTypes } from '../../../shared/store/ducks/insight-details/types';
+import { ApplicationState } from './../../../shared/store';
 import { Container, Wrapper, CarouselItem, Column, Column2, Total, Type } from './styles';
 
 interface Props {
@@ -7,12 +10,21 @@ interface Props {
 }
 
 const Carousel: React.FC<Props> = ({ accounts }) => {
+  const dispatch = useDispatch();
+
+  const handleChange = (id: number): void => {
+    dispatch({ 
+      type: InsightDetailsTypes.GET_INSIGHT_DETAILS_FILTER, 
+      payload: { id } 
+    });
+  };
+
   return (
     <>
       {accounts && (
         <Container>
           <Wrapper>
-            <Slider>
+            <Slider showThumbs={false} onChange={handleChange}>
               {accounts.map(account => (
               <CarouselItem key={account.id}>
                 <Column>

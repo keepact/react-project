@@ -10,7 +10,7 @@ const TransactionList: React.FC<Props> = ({ transactions }) => {
   return (
     <Content>
       {transactions?.map(transaction => (
-        <Container key={transaction.date}>
+        <Container key={transaction.id}>
           <Wrapper>
             <Left>
               <p>{transaction.merchantName}</p>

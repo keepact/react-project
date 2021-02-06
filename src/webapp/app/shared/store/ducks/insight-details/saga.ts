@@ -32,6 +32,7 @@ function* getInsightDetails({ payload: { id } }: InsightDetailsAction) {
       })),
       transactions: item.transactions?.map(transaction => ({
         ...transaction,
+        id: transaction.date,
         date: convertDate(transaction.date, config),
         amount: formatPrice(transaction.amount)
       }))

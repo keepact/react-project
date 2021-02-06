@@ -28,7 +28,7 @@ const Carousel: React.FC<Props> = ({ accounts }) => {
               <SliderItem key={account.id}>
                 <Column>
                   <div>
-                    <img src={require(`../../../images/account-selector-${account.image}.svg`).default} />
+                    <img src={require(`../../../../public/images/account-selector-${account.image}.svg`).default} />
                   </div>
                   <div>
                     <span>Checking Account</span>

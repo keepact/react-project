@@ -66,7 +66,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({ 
-          template: path.resolve(__dirname, 'src', 'webapp', 'index.html'),
+          template: path.resolve(__dirname, 'src', 'webapp', 'public', 'index.html'),
           filename: 'index.html'
         }),
         new webpack.HotModuleReplacementPlugin()

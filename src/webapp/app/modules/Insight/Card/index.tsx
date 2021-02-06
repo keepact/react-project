@@ -5,7 +5,6 @@ import { Container, Date as DateComponent, Wrapper, Data, Title, SubTitle } from
 import { ApplicationState } from '../../../shared/store';
 import { InsightDetailsTypes } from '../../../shared/store/ducks/insight-details/types';
 import RouteNames from '../../../shared/enums/routeNames.enum';
-import Loading from '../../../components/Loading';
 
 const Card: React.FC = () => {
   const { data: insights, error, loading } = useSelector(
@@ -14,6 +13,7 @@ const Card: React.FC = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
+
   const handleChangePage = (id: string): void => {
     dispatch({ 
       type: InsightDetailsTypes.GET_INSIGHT_DETAILS, 
@@ -34,7 +34,7 @@ const Card: React.FC = () => {
               </DateComponent>
               <Title>{insight.title}</Title>
               <SubTitle>{insight.text}</SubTitle>
-              <img src={require(`../../../images/${insight.image}.png`).default} />
+              <img src={require(`../../../../public/images/${insight.image}.png`).default} />
             </Data>
           </button>
           </Wrapper>

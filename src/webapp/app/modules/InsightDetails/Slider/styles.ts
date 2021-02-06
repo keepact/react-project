@@ -44,7 +44,7 @@ export const Wrapper = styled.div`
   padding: 15px;
 `;
 
-export const CarouselItem = styled.div`
+export const SliderItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

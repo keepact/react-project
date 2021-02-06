@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { ApplicationState } from '../../shared/store';
 import Header from '../InsightDetails/Header';
 import Title from './Title'
-import Carousel from './Carousel';
+import Slider from './Slider';
 import TransactionList from './TransactionList';
-import { ApplicationState } from '../../shared/store';
 import Loading from '../../components/Loading';
 
 const InsightDetails: React.FC = () => {
@@ -20,7 +20,7 @@ const InsightDetails: React.FC = () => {
         <>
           <Header />
           <Title text="Purchases on your cards in December added up to $19,184"/>
-          <Carousel accounts={accounts}/>
+          <Slider accounts={accounts}/>
           <TransactionList transactions={transactions}/>
         </>
       )}

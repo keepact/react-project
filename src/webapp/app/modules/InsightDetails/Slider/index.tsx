@@ -1,9 +1,8 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Carousel as Slider } from 'react-responsive-carousel';
 import { InsightDetailsTypes } from '../../../shared/store/ducks/insight-details/types';
-import { ApplicationState } from './../../../shared/store';
-import { Container, Wrapper, CarouselItem, Column, Column2, Total, Type } from './styles';
+import { Container, Wrapper, SliderItem, Column, Column2, Total, Type } from './styles';
 
 interface Props {
   accounts: any[];
@@ -26,7 +25,7 @@ const Carousel: React.FC<Props> = ({ accounts }) => {
           <Wrapper>
             <Slider showThumbs={false} onChange={handleChange}>
               {accounts.map(account => (
-              <CarouselItem key={account.id}>
+              <SliderItem key={account.id}>
                 <Column>
                   <div>
                     <img src={require(`../../../images/account-selector-${account.image}.svg`).default} />
@@ -43,7 +42,7 @@ const Carousel: React.FC<Props> = ({ accounts }) => {
                     </p>
                   </Total>
                 </Column2>            
-              </CarouselItem>
+              </SliderItem>
               ))}
             </Slider>
           </Wrapper>

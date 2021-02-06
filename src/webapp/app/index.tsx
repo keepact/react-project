@@ -1,13 +1,10 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { ThemeContextProvider } from './shared/context/themeContext';
+import React, { StrictMode } from 'react';
+import ReactDOM from 'react-dom';
 import App from './App';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ThemeContextProvider>
-      <App />
-  	</ThemeContextProvider>
-  </React.StrictMode>,
+  <StrictMode>
+    <App />
+  </StrictMode>,
   document.getElementById('root')
 );

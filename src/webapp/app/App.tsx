@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { ThemeContext } from './shared/context/themeContext';
+import { ThemeContextProvider } from './shared/context/themeContext';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './shared/store';
@@ -11,14 +12,16 @@ const App: React.FC = () => {
   const { colorTheme } = useContext(ThemeContext);
 
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <ThemeProvider theme={colorTheme}>
-          <Routes />
-          <GlobalStyle />
-        </ThemeProvider>
-      </PersistGate>
-    </Provider>
+    <ThemeContextProvider>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <ThemeProvider theme={colorTheme}>
+            <Routes />
+            <GlobalStyle />
+          </ThemeProvider>
+        </PersistGate>
+      </Provider>
+    </ThemeContextProvider>
   );
 };
 export default App;

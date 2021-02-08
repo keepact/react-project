@@ -25,6 +25,11 @@ export const Data = styled.div`
   justify-content: space-around;
   width: 100%;
   height: 100%;
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
 `;
 
 export const Title = styled.h4`

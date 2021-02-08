@@ -8,9 +8,11 @@ import TransactionList from './TransactionList';
 import Loading from '../../components/Loading';
 
 const InsightDetails: React.FC = () => {
-  const { accounts, transactions, loading } = useSelector(
+  const { data, accounts, transactions, loading } = useSelector(
     (state: ApplicationState) => state.insightDetails,
   );
+
+  const title = data.title;
 
   return (
     <>
@@ -18,7 +20,7 @@ const InsightDetails: React.FC = () => {
         <Loading />
       ) : (
         <>
-          <Header />
+          <Header title={title}/>
           <Title text="Purchases on your cards in December added up to $19,184"/>
           <Slider accounts={accounts}/>
           <TransactionList transactions={transactions}/>

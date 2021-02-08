@@ -1,18 +1,17 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { FiArrowLeft } from "react-icons/fi";
 import ThemeSwitcher from '../../../components/ThemeSwitch';
 import { Container, Content, Title } from './styles';
 import RouteNames from '../../../shared/enums/routeNames.enum';
 import { InsightTypes } from '../../../shared/store/ducks/insight/types';
-import { ApplicationState } from '../../../shared/store';
 
-const Header: React.FC = () => {
-  const { data, error, loading } = useSelector(
-    (state: ApplicationState) => state.insightDetails,
-  );
+interface Props {
+  title: string;
+}
 
+const Header: React.FC<Props> = ({ title }) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -26,7 +25,7 @@ const Header: React.FC = () => {
         <button type="button" onClick={handleChangePage}>
           <FiArrowLeft />
         </button>
-        <Title>{data.title}</Title>
+        <Title>{title}</Title>
         <ThemeSwitcher />
       </Content>
     </Container>

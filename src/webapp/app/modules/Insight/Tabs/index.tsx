@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { InsightTypes } from '../../../shared/store/ducks/insight/types';
-import { ApplicationState } from '../../../shared/store';
 
 import { Tabs, Tab, Text, Wrapper, Separator } from './styles';
 
-const InsightTabs: React.FC = () => {
+interface Props {
+  unread: number;
+  insightsSize: number;
+}
+
+const InsightTabs: React.FC<Props> = ({ unread, insightsSize }) => {
   const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
-
-  const { insights, unread } = useSelector(
-    (state: ApplicationState) => state.insight,
-  );
-  const insightsSize = insights.length;
 
   const handleFilterUnread = () => {
     setChecked(true);

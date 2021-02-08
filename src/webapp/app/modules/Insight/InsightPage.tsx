@@ -10,12 +10,12 @@ import Loading from '../../components/Loading';
 const Insight: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { insights, loading } = useSelector(
+  const { insights: pristine, data: insights, loading, unread } = useSelector(
     (state: ApplicationState) => state.insight,
   );
+  const insightsPrestine = pristine.length;
   
   useEffect(() => {
-    const insightsPrestine = insights.length;
     if (!insightsPrestine) {
       dispatch({ type: InsightTypes.GET_INSIGHT });
     }
@@ -28,8 +28,8 @@ const Insight: React.FC = () => {
         ) : (
           <>
             <Header />
-            <Tabs />
-            <Card />
+            <Tabs unread={unread} insightsSize={insightsPrestine}/>
+            <Card insights={insights}/>
           </>
         )
       }

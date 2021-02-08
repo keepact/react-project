@@ -5,12 +5,13 @@ import { Container, Date as DateComponent, Wrapper, Data, Title, SubTitle } from
 import { ApplicationState } from '../../../shared/store';
 import { InsightDetailsTypes } from '../../../shared/store/ducks/insight-details/types';
 import RouteNames from '../../../shared/enums/routeNames.enum';
+import { Insight } from '../../../shared/store/ducks/insight/types';
 
-const Card: React.FC = () => {
-  const { data: insights, error, loading } = useSelector(
-    (state: ApplicationState) => state.insight,
-  );
+interface Props {
+  insights: Insight[];
+}
 
+const Card: React.FC<Props> = ({ insights }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 

@@ -15,6 +15,10 @@
 
     git clone git@github.com:keepact/react-project.git
 
-1 - From the ``root`` folder, you have to run:
+1 - From the ``root`` folder, you have to install all the project dependecies with the command:
 
-    npm install && npm start
+    npm install
+
+2 - Now, from the ``root`` folder, you have to run:
+
+    npm run mocks && npm start

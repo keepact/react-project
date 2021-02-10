@@ -19,9 +19,10 @@ export interface Insight {
 
 // State Type
 export interface InsightState {
-  readonly data: Insight[];
+  readonly insights: Insight[];
+  readonly insightsPristine: Insight[];
   readonly loading: boolean;
   readonly error: boolean;
-  readonly insights: Insight[];
   readonly unread: number;
+  readonly insightsSize: number;
 }

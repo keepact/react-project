@@ -3,11 +3,12 @@ import { Reducer } from 'redux';
 import { Insight, InsightState, InsightTypes } from './types';
 
 const INITIAL_STATE: InsightState = {
-  data: [],
+  insights: [],
   error: false,
   loading: false,
-  insights: [],
-  unread: 0
+  insightsPristine: [],
+  unread: 0,
+  insightsSize: 0
 };
 
 export type InsightAction = {
@@ -26,10 +27,11 @@ export const reducer: Reducer<InsightState, InsightAction> = (
         break;
       }
       case InsightTypes.GET_INSIGHT_SUCCESS: {
-        const insight = action.payload;
-        draft.data = insight;
-        draft.insights = insight;
-        draft.unread = draft.data.filter(item => item.status === 'unread').length;
+        const insights = action.payload;
+        draft.insights = insights;
+        draft.insightsPristine = insights;
+        draft.insightsSize = insights.length;
+        draft.unread = insights.filter(item => item.status === 'unread').length;
         draft.loading = false;
         draft.error = false;
         break;
@@ -40,12 +42,12 @@ export const reducer: Reducer<InsightState, InsightAction> = (
         break;
       }
       case InsightTypes.FILTER_UNREAD: {
-        draft.data = draft.data.filter(item => item.status === 'unread');
+        draft.insights = draft.insightsPristine.filter(item => item.status === 'unread');
         draft.unread = 0;
         break;
       }
       case InsightTypes.FILTER_ALL: {
-        draft.data = draft.insights;
+        draft.insights = draft.insightsPristine;
         break;
       }
       default:

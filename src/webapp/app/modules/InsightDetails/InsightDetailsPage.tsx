@@ -8,11 +8,9 @@ import TransactionList from './TransactionList';
 import Loading from '../../components/Loading';
 
 const InsightDetails: React.FC = () => {
-  const { data, accounts, transactions, loading } = useSelector(
+  const { data: { title }, accounts, transactions, loading } = useSelector(
     (state: ApplicationState) => state.insightDetails,
   );
-
-  const title = data.title;
 
   return (
     <>

@@ -1,8 +1,7 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Container, Date as DateComponent, Wrapper, Data, Title, SubTitle } from './styles';
-import { ApplicationState } from '../../../shared/store';
+import { Container, Date as DateComponent, Wrapper, Data, Title, SubTitle, ImageContainer, Content } from './styles';
 import { InsightDetailsTypes } from '../../../shared/store/ducks/insight-details/types';
 import RouteNames from '../../../shared/enums/routeNames.enum';
 import { Insight } from '../../../shared/store/ducks/insight/types';
@@ -24,7 +23,7 @@ const Card: React.FC<Props> = ({ insights }) => {
   }
 
   return (
-    <>
+    <Content>
       {insights.map(insight => (
         <Container key={insight.insightId}>
           <Wrapper>
@@ -35,13 +34,15 @@ const Card: React.FC<Props> = ({ insights }) => {
               </DateComponent>
               <Title>{insight.title}</Title>
               <SubTitle>{insight.text}</SubTitle>
-              <img src={require(`../../../../public/images/${insight.image}.png`).default} />
+              <ImageContainer>
+                <img src={require(`../../../../public/images/${insight.image}.png`).default} />
+              </ImageContainer>
             </Data>
           </button>
           </Wrapper>
         </Container>    
       ))}
-    </>
+    </Content>
   );
 }
 

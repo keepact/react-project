@@ -19,6 +19,10 @@
 
     npm install
 
-2 - Now, from the ``root`` folder, you have to run:
+2 - Now, from the ``root`` folder, to turn on the mock server you have to run:
 
-    npm run mocks && npm start
+    npm run mocks
+    
+3 - Again, from the ``root`` folder, start the project with command:
+
+    npm start    
